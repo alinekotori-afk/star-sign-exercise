@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Astrology Fill-in-the-Blank Exercise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .droptarget {
+            min-width: 140px;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #a855f7;
+            background-color: #020617;
+            border-radius: 0.5rem;
+            margin: 0 4px;
+            padding: 4px 10px;
+            color: #f8fafc;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .droptarget.drag-over {
+            background-color: #581c87;
+            border-color: #d8b4fe;
+        }
+        .draggable-item {
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+        }
+        .draggable-item:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="p-6 bg-slate-900 border-b border-slate-800 flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto w-full gap-4">
+        <div>
+            <h1 class="text-2xl font-extrabold tracking-wide text-purple-400">Extended Astrology Masterclass Exercise</h1>
+            <p class="text-slate-400 text-sm">Arraste os 12 signos do zodíaco para as lacunas corretas do texto baseado em suas características exclusivas e dicas detalhadas.</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <span id="score-display" class="text-lg bg-slate-800 px-4 py-2 rounded-xl text-purple-300 font-bold">Score: 0 / 12</span>
+            <button onclick="resetExercise()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl font-semibold transition cursor-pointer">Reset / Reiniciar</button>
+        </div>
+    </header>
+
+    <!-- Main Exercise Area -->
+    <main class="flex-1 max-w-5xl mx-auto w-full p-6 flex flex-col justify-center items-center gap-8">
+        
+        <!-- Instruction Banner -->
+        <div class="w-full bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl text-left">
+            <p class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-2">Instrução em Português com Dicas Estendidas:</p>
+            <p class="text-slate-300 text-base leading-relaxed">
+                Complete o texto completo abaixo arrastando os signos corretos para os espaços tracejados. Cada parágrafo contém dicas textuais detalhadas sobre o elemento, arquétipo ou comportamento do signo correspondente estudado na masterclass!
+            </p>
+        </div>
+
+        <!-- Text Container with Drop Zones -->
+        <div class="w-full bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl text-lg leading-loose text-slate-200 space-y-6">
+            <p>
+                1. The zodiac wheel initiates its sacred energetic cycle with <span class="droptarget" data-answer="Aries" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span>, the primal fire pioneer driven by raw vitality, fearlessness, and a complete intolerance for stagnation.
+            </p>
+            <p>
+                2. Following the pioneer, <span class="droptarget" data-answer="Taurus" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> acts as the master builder of material security, building long-term value and stability with unshakeable sensory steadfastness.
+            </p>
+            <p>
+                3. Expanding into intellectual exchange, <span class="droptarget" data-answer="Gemini" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> serves as the alchemical messenger of ideas, utilizing brilliant verbal dexterity and cognitive adaptability.
+            </p>
+            <p>
+                4. Seeking psychological safety and nurturing emotional roots, the sacred sanctuary is fiercely guarded by <span class="droptarget" data-answer="Cancer" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span>, whose hard shell protects an ocean of profound empathy.
+            </p>
+            <p>
+                5. Radiating sovereign warmth and magnanimous creativity, <span class="droptarget" data-answer="Leo" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> takes center stage as the solar heart, inspiring courage and offering joyous self-expression.
+            </p>
+            <p>
+                6. Bringing analytical precision, health optimization, and sacred service behind the scenes, <span class="droptarget" data-answer="Virgo" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> works meticulously to heal systemic chaos.
+            </p>
+            <p>
+                7. Weighing relational scales with diplomatic grace and a search for universal justice, <span class="droptarget" data-answer="Libra" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> acts as the mediator of divine equity and open partnership mirrors.
+            </p>
+            <p>
+                8. Unmasking psychological truth and diving into profound transformation and rebirth, <span class="droptarget" data-answer="Scorpio" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> masters emotional intensity and absolute loyalty.
+            </p>
+            <p>
+                9. Chasing expansive philosophical horizons and seeking higher truth with unbridled optimism, <span class="droptarget" data-answer="Sagittarius" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> roams freely as the cosmic seeker and archer.
+            </p>
+            <p>
+                10. Constructing enduring societal legacy through iron discipline and strategic ambition, <span class="droptarget" data-answer="Capricorn" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> stands strong as the master architect.
+            </p>
+            <p>
+                11. Innovating futuristic paradigms and uniting collective humanitarian networks for systemic progress, <span class="droptarget" data-answer="Aquarius" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> operates as the visionary reformer.
+            </p>
+            <p>
+                12. Finally, dissolving ego boundaries into the infinite ocean of universal spirit and mystical dreams, <span class="droptarget" data-answer="Pisces" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="dropItem(event)"></span> completes the wheel as the cosmic mystic dreamer.
+            </p>
+        </div>
+
+        <!-- Draggable Words Bank -->
+        <div class="w-full bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-wrap justify-center gap-4 items-center min-h-[120px]" id="word-bank">
+            <p class="w-full text-center text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Signos disponíveis para arrastar:</p>
+            <!-- Items generated via JS -->
+        </div>
+
+        <!-- Result / Feedback Box -->
+        <div id="feedback-box" class="hidden w-full p-4 rounded-xl text-center font-bold text-lg"></div>
+
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="p-6 bg-slate-900 border-t border-slate-800 flex justify-center gap-4">
+        <button onclick="checkAnswers()" class="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-lg transition cursor-pointer shadow-lg shadow-purple-900/30">Check Answers / Verificar Respostas</button>
+    </footer>
+
+    <script>
+        const words = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+        
+        function initExercise() {
+            const wordBank = document.getElementById('word-bank');
+            wordBank.innerHTML = '<p class="w-full text-center text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Signos disponíveis para arrastar:</p>';
+            
+            // Shuffle words
+            const shuffled = [...words].sort(() => Math.random() - 0.5);
+            
+            shuffled.forEach(word => {
+                const span = document.createElement('span');
+                span.className = 'draggable-item bg-purple-950 hover:bg-purple-900 border border-purple-700 text-purple-200 px-4 py-2 rounded-xl font-bold text-base shadow-md transition';
+                span.draggable = true;
+                span.id = 'word-' + word;
+                span.textContent = word;
+                span.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                });
+                wordBank.appendChild(span);
+            });
+
+            // Reset drop targets
+            document.querySelectorAll('.droptarget').forEach(target => {
+                target.textContent = '';
+                target.style.borderColor = '#a855f7';
+                target.style.backgroundColor = '#020617';
+            });
+
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('score-display').textContent = 'Score: 0 / ' + words.length;
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+            ev.currentTarget.classList.add('drag-over');
+        }
+
+        function removeDropStyle(ev) {
+            ev.currentTarget.classList.remove('drag-over');
+        }
+
+        function dropItem(ev) {
+            ev.preventDefault();
+            ev.currentTarget.classList.remove('drag-over');
+            const data = ev.dataTransfer.getData('text/plain');
+            const draggedElement = document.getElementById(data);
+            
+            if (draggedElement) {
+                ev.currentTarget.textContent = draggedElement.textContent;
+                draggedElement.remove();
+            }
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            const targets = document.querySelectorAll('.droptarget');
+            
+            targets.forEach(target => {
+                const userAnswer = target.textContent.trim();
+                const correctAnswer = target.getAttribute('data-answer');
+                
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    target.style.borderColor = '#22c55e'; // green
+                    target.style.backgroundColor = '#052e16';
+                } else {
+                    target.style.borderColor = '#ef4444'; // red
+                    target.style.backgroundColor = '#450a0a';
+                }
+            });
+
+            const feedback = document.getElementById('feedback-box');
+            feedback.classList.remove('hidden');
+            document.getElementById('score-display').textContent = 'Score: ' + score + ' / ' + words.length;
+
+            if (score === words.length) {
+                feedback.className = 'w-full p-4 rounded-xl text-center font-bold text-lg bg-green-950 text-green-300 border border-green-800';
+                feedback.textContent = 'Parabéns! Você completou todos os 12 signos corretamente com base na masterclass! (Congratulations! All answers are correct!)';
+            } else {
+                feedback.className = 'w-full p-4 rounded-xl text-center font-bold text-lg bg-amber-950 text-amber-300 border border-amber-800';
+                feedback.textContent = `Você acertou ${score} de ${words.length}. Analise as dicas textuais e tente novamente!`;
+            }
+        }
+
+        function resetExercise() {
+            initExercise();
+        }
+
+        window.onload = initExercise;
+    </script>
+</body>
+</html>
